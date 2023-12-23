@@ -10,10 +10,10 @@ while True:
         start = end
         end = A - 2 ** idx
     if start > end and end <= B <= start:
-        result += (B - end)
+        result += abs(start - B)
         break 
     if start <= end and start <= B <= end:
-        result += (B - start)
+        result += abs(start - B)
         break
     result += abs(start - end)
     idx += 1
