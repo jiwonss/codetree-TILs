@@ -3,8 +3,7 @@ n, t = map(int, input().split())
 # 파스칼의 삼각형 만들기
 pascal = [[0 for _ in range(n + 1)] for _ in range(n)]
 pascal[0][0] = 1
-pascal[1][0], pascal[1][1] = 1, 1
-for i in range(2, n):
+for i in range(1, n):
     for j in range(n):
         pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j]
 
