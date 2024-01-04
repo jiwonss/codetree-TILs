@@ -4,8 +4,9 @@ def move(idx):
         info[b][1] += info[a][1]
         info[a][1] = 0
     else:
+        info[a][1] = info[a][1] + info[b][1] - info[b][0]
         info[b][1] = info[b][0]
-        info[a][1] = info[a][1] - info[b][0] 
+
 
 info = [list(map(int, input().split())) for _ in range(3)]
 
