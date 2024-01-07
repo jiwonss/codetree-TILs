@@ -3,34 +3,34 @@ def check(a, b, c):
         return 1
     return 0
 
-def move(a, b):
-    div, mod = divmod(a + b, 2)
-    if mod == 0:
-        return div
-    return div + 1
+def move(a, b, c):
+    global cnt, min_cnt, max_cnt
+    if check(a, b, c):
+        min_cnt = min(min_cnt, cnt)
+        max_cnt = max(max_cnt, cnt)
+        cnt = 0
+        return 
+    if a + 1 < b:
+        a, b, c = a, a + 1, b
+        cnt += 1
+        move(a, b, c)
+    if a + 2 < b:
+        a, b, c = a, a + 2, b
+        cnt += 1
+        move(a, b, c)
+    if b + 1 < c:
+        a, b, c = b, b + 1, c
+        cnt += 1
+        move(a, b, c)
+    if b + 2 < c:
+        a, b, c = b, b + 2, c
+        cnt += 1
+        move(a, b, c)
 
 p1, p2, p3 = map(int, input().split())
 
-# 최소
-a, b, c = p1, p2, p3
-min_cnt = 0
-while not check(a, b, c):
-    result1, result2 = move(a, b), move(b, c)
-    if (result1 - a) > (result2 - b):
-        a, b = b, result2
-    else:
-        c, b = b, result1
-    min_cnt += 1
+cnt = 0
+min_cnt, max_cnt = 1e9, 0
+move(p1, p2, p3)
 print(min_cnt)
-
-# 최대
-a, b, c = p1, p2, p3
-max_cnt = 0
-while not check(a, b, c):
-    result1, result2 = move(a, b), move(b, c)
-    if (result1 - a) < (result2 - b):
-        a, b = b, result2
-    else:
-        c, b = b, result1
-    max_cnt += 1
 print(max_cnt)
