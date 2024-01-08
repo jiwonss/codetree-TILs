@@ -4,6 +4,8 @@ a, b, c = map(int, input().split())
 min_cnt = 2
 if b - a == 2 or c - b == 2:
     min_cnt = 1
+elif b - a == 1 and c - b == 1:
+    min_cnt = 0
 print(min_cnt)
 
 # 최대 이동 횟수
