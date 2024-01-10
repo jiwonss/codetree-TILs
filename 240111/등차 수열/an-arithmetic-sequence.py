@@ -1,17 +1,11 @@
-def subset(start, arr):
+def subset(idx, arr):
     global result
-    if start == n:
-        if check(arr):
+    if idx == n:
+        if arr and check(arr):
             result = max(result, len(arr))
         return
-    for i in range(start, n):
-        if visited[i]:
-            continue
-        visited[i] = 1
-        arr.append(num[i])
-        subset(i + 1, arr)
-        arr.pop()
-        visited[i] = 0
+    subset(idx + 1, arr)
+    subset(idx + 1, arr + [num[idx]])
 
 def check(arr):
     global a
