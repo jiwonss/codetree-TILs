@@ -14,6 +14,9 @@ def subset(start, arr):
         visited[i] = 0
 
 def check(arr):
+    global a
+    if arr[0] != a:
+        return 0
     for i in range(len(arr) - 1):
         if arr[i + 1] - arr[i] != d:
             return 0
@@ -23,7 +26,6 @@ n, a, d = map(int, input().split())
 num = list(map(int, input().split()))
 
 visited = [0 for _ in range(n)]
-start = num.index(a)
 result = 0
-subset(start, [])
+subset(0, [])
 print(result)
