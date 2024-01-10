@@ -1,25 +1,14 @@
-def subset(idx, arr):
-    global result
-    if idx == n:
-        if arr and check(arr):
-            result = max(result, len(arr))
-        return
-    subset(idx + 1, arr)
-    subset(idx + 1, arr + [num[idx]])
-
-def check(arr):
-    global a
-    if arr[0] != a:
+def solve(a, d):
+    if a not in arr:
         return 0
-    for i in range(len(arr) - 1):
-        if arr[i + 1] - arr[i] != d:
-            return 0
-    return 1
+    cnt, num = 1, a + d
+    for i in range(arr.index(a), n):
+        if arr[i] == num:
+            cnt += 1
+            num += d 
+    return cnt    
 
 n, a, d = map(int, input().split())
-num = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 
-visited = [0 for _ in range(n)]
-result = 0
-subset(0, [])
-print(result)
+print(solve(a, d))
