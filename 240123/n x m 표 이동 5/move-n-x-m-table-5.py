@@ -22,6 +22,7 @@ def bfs():
                 continue
             visited[nx][ny] = visited[x][y] + 1
             q.append([nx, ny])
+    return 0
 
 n, m = map(int, input().split())
 board = [list(map(int, input().split())) for _ in range(n)]
