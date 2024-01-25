@@ -5,7 +5,6 @@ def calc(num):
         if carry:
             temp += + carry
             carry = 0
-        
         if temp >= 10:
             carry = temp // 10
             result += str(temp % 10)
@@ -21,13 +20,12 @@ n, m = int(num[0]), num[1]
 integer_result = bin(n)[2:]
 decimal_result = ''
 for _ in range(4):
-    cur = len(m)
-    m = calc(m)
-    nxt = len(m)
-    if cur == nxt:
+    temp = calc(m)
+    if len(m) == len(temp):
         decimal_result += '0'
+        m = temp
     else:
-        m = str(m)[1:]
+        m = temp[1:]
         decimal_result += '1'
 
 result = integer_result + '.' + decimal_result
