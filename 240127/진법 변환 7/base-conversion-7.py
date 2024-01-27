@@ -29,4 +29,4 @@ for _ in range(4):
         decimal_result += '1'
 
 result = integer_result + '.' + decimal_result
-print(result)
+print(float(result))
