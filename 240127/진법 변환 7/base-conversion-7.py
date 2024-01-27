@@ -15,7 +15,7 @@ def calc(num):
     return result[::-1]
 
 num = input().split('.')
-n, m = int(num[0]), num[1]
+n, m = num[0], num[1]
 
 integer_result = bin(n)[2:]
 # decimal_result = ''
@@ -29,6 +29,10 @@ integer_result = bin(n)[2:]
 #         decimal_result += '1'
 
 decimal_result = 0
+for i, digit in enumerate(n):
+    decimal_result += int(digit) * pow(2, -(i + 1))
+print(decimal_result)
+
 for i, digit in enumerate(m):
     decimal_result += int(digit) * pow(2, -(i + 1))
 print(decimal_result)
