@@ -1,7 +1,6 @@
 def calc(num):
-    num.replace('\r', '')
     carry, result = 0, ''
-    for n in num[::-1]:
+    for n in list(num[::-1]):
         temp = int(n) * 2
         if carry:
             temp += carry
