@@ -21,12 +21,13 @@ integer_result = bin(n)[2:]
 decimal_result = ''
 for _ in range(4):
     temp = calc(m)
+    print(m, temp, decimal_result)
     if len(m) == len(temp):
-        decimal_result += '0'
         m = temp
+        decimal_result += '0'
     else:
         m = temp[1:]
         decimal_result += '1'
 
 result = integer_result + '.' + decimal_result
-print(float(result))
+print(result)
