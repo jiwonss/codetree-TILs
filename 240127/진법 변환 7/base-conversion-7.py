@@ -21,7 +21,6 @@ integer_result = bin(n)[2:]
 decimal_result = ''
 for _ in range(4):
     temp = calc(m)
-    print(m, temp, decimal_result)
     if len(m) == len(temp):
         m = temp
         decimal_result += '0'
