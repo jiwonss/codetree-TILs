@@ -1,7 +1,7 @@
 def calc(num):
     carry, result = 0, ''
-    for n in num[::-1]:
-        temp = int(n) * 2
+    for i in range(len(num) - 1, -1, -1):
+        temp = int(num[i]) * 2
         if carry:
             temp += carry
             carry = 0
