@@ -1,41 +1,15 @@
-def calc(num):
-    carry, result = 0, ''
-    for n in num[::-1].strip():
-        temp = int(n) * 2
-        if carry:
-            temp += carry
-            carry = 0
-        if temp >= 10:
-            carry = temp // 10
-            result += str(temp % 10)
-        else:
-            result += str(temp)
-    if carry:
-        result += str(carry)
-    return result[::-1]
-
 num = input().split('.')
-n, m = num[0], num[1]
+n, m = int(num[0]), num[1]
 
 integer_result = bin(n)[2:]
-# decimal_result = ''
-# for _ in range(4):
-#     temp = calc(m)
-#     if len(m) == len(temp):
-#         m = temp
-#         decimal_result += '0'
-#     else:
-#         m = temp[1:]
-#         decimal_result += '1'
-
-decimal_result = 0
-for i, digit in enumerate(n):
-    decimal_result += int(digit) * pow(2, -(i + 1))
-print(decimal_result)
-
-for i, digit in enumerate(m):
-    decimal_result += int(digit) * pow(2, -(i + 1))
-print(decimal_result)
-
-# result = integer_result + '.' + decimal_result
-# print(result)
+decimal_result = ''
+for _ in range(4):
+    temp = str(int(m) * 2).zfill(len(m))
+    if len(temp) == len(m):
+        m = temp
+        decimal_result += '0'
+    else:
+        m = temp[1:]
+        decimal_result += '1'
+result = integer_result + '.' + decimal_result
+print(result)
