@@ -14,7 +14,7 @@ def calc():
 n = int(input())
 arr = list(map(int, input().split()))
 
-result = 1e9
+result = 0
 for p in permutations(arr, n):
-    result = min(result, calc())
+    result = max(result, calc())
 print(result)
